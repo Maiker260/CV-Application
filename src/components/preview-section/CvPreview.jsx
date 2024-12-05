@@ -1,5 +1,7 @@
 import CvInfoSection from "./CvInfoSection"
 
+import "../../styles/preview-section/CvPreview.css"
+
 export default function CvPreview({}) {
     return (
         <section className="cv-preview">

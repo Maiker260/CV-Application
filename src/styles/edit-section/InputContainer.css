@@ -1,0 +1,21 @@
+.input-container {
+    gap: 0.3em;
+    width: 100%;
+}
+
+.input-label {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.input-bar {
+    padding: 0.7em;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #f3f4f6;
+}
+
+.textarea {
+    resize: none
+}

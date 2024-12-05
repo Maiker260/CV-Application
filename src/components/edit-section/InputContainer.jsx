@@ -1,5 +1,7 @@
+import "../../styles/edit-section/InputContainer.css"
+
 export default function InputContainer({
-    classContainer = "input-title", 
+    classContainer = "input-container flex-column", 
     title, 
     type, 
     placeholder, 
