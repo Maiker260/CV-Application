@@ -1,3 +1,35 @@
-.cv-preview {
-    
+.cv-header {
+    background-color: #0e374e;
+    color: white;
+    padding: 2em 0;
+    gap: 1em;
+}
+
+.contact-name { 
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.contact-info {
+    justify-content: center;
+    gap: 1em;
+}
+
+.contact-details-container {
+    align-items: center;
+    gap: 0.2em;
+}
+
+.contact-info-icon {
+    height: 20px;
+    width: 20px;
+    fill: white;
+}
+
+/* ============================= */
+
+.cv-content {
+    padding: 2.5em;
+    gap: 2em;
 }

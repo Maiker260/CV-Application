@@ -1,5 +1,7 @@
 import CvInfoDescription from "./CvInfoDescription"
 
+import "../../styles/preview-section/CvInfoSection.css"
+
 export default function CvInfoSection({ title, date, institution, position, description = null }) {
     return (
         <section className="cv-info">

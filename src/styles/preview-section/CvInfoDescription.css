@@ -1,0 +1,25 @@
+.cv-info-content {
+    align-items: start;
+    gap: 2em;
+    padding-left: 1.5em;
+    padding-top: 1em;
+}
+
+.cv-info-date {
+    font-size: 1.1rem;
+}
+
+.company-role {
+    font-size: 1.3rem;
+    font-weight: bold;
+    gap: 0.5em;
+}
+
+.cv-info-description-container {
+    gap: 0.5em;
+}
+
+.cv-info-description {
+    max-width: 55ch;
+    line-height: 1.3em;
+}
