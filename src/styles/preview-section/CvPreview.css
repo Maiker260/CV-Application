@@ -11,22 +11,6 @@
     font-weight: bolder;
 }
 
-.contact-info {
-    justify-content: center;
-    gap: 1em;
-}
-
-.contact-details-container {
-    align-items: center;
-    gap: 0.2em;
-}
-
-.contact-info-icon {
-    height: 20px;
-    width: 20px;
-    fill: white;
-}
-
 /* ============================= */
 
 .cv-content {
