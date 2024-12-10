@@ -1,6 +1,6 @@
 import "../../styles/preview-section/CvInfoDescription.css"
 
-export default function CvInfoDescription({ date, institution, position, description }) {
+export default function CvInfoDescription({ date, institution, position, description="null" }) {
     return (
         <main className="cv-info-content flex">
             <section className="cv-info-date-container">

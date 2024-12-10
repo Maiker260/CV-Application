@@ -6,18 +6,38 @@ export default function InputContainer({
     type, 
     placeholder, 
     textArea = false, 
-    classInput = "input-bar"
+    classInput = "input-bar",
+    inputValue,
+    onChange,
+    dataSection,
+    dataInfo,
 }) {
     
     const elementType = 
         textArea
-            ? <textarea placeholder={placeholder} className={classInput}></textarea>
-            : <input type={type} placeholder={placeholder} className={classInput} />
+            ? <textarea 
+                placeholder={placeholder} 
+                className={classInput} 
+                onChange={onChange} 
+                defaultValue={inputValue}
+                data-section={dataSection}
+                data-info={dataInfo}
+              >
+              </textarea>
+            : <input 
+                type={type} 
+                placeholder={placeholder} 
+                className={classInput} 
+                onChange={onChange} 
+                defaultValue={inputValue}
+                data-section={dataSection}
+                data-info={dataInfo}
+              />
 
     return (
         <div className={classContainer}>
             <label className="input-label">{title}</label>
-            {elementType}
+            {elementType }
         </div>
     )
 }

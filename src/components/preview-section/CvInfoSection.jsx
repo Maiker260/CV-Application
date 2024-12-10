@@ -1,19 +1,12 @@
-import CvInfoDescription from "./CvInfoDescription"
-
 import "../../styles/preview-section/CvInfoSection.css"
 
-export default function CvInfoSection({ title, date, institution, position, description = null }) {
+export default function CvInfoSection({ title, content }) {
     return (
         <section className="cv-info">
             <header className="cv-info-title-container">
                 <h4 className="cv-info-title">{title}</h4>
             </header>
-            <CvInfoDescription 
-                date={date}
-                institution={institution}
-                position={position}
-                description={description}
-            />
+            {content}
         </section>
     )
 }
