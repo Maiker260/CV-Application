@@ -1,0 +1,16 @@
+.edit-button {
+    font-size: 1rem;
+    padding: 0.4em 1em;
+    background-color: white;
+    color: #67696b;
+    border-radius: 0.4em;
+    border: 1px solid #67696b;
+    cursor: pointer;
+    margin-top: 0.5em;
+    align-items: center;
+}
+
+.edit-button:hover {
+    color: white;
+    background-color: #67696b;
+}

@@ -17,5 +17,6 @@
 }
 
 .textarea {
-    resize: none
+    resize: none;
+    height: 5em;
 }

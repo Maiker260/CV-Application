@@ -1,0 +1,7 @@
+.buttons-container {
+    justify-content: space-between;
+}
+
+.right-buttons {
+    gap: 1em;
+}
