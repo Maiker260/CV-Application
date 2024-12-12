@@ -22,6 +22,7 @@ export default function InputContainer({
                 defaultValue={inputValue}
                 data-section={dataSection}
                 data-info={dataInfo}
+                id={`${dataSection}${dataInfo}`}
               >
               </textarea>
             : <input 
@@ -32,11 +33,12 @@ export default function InputContainer({
                 defaultValue={inputValue}
                 data-section={dataSection}
                 data-info={dataInfo}
+                id={`${dataSection}${dataInfo}`}
               />
 
     return (
         <div className={classContainer}>
-            <label className="input-label">{title}</label>
+            <label className="input-label" htmlFor={`${dataSection}${dataInfo}`}>{title}</label>
             {elementType }
         </div>
     )
