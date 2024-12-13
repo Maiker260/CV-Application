@@ -20,21 +20,35 @@ export default function App() {
         const target = e.target;
         const section = target.dataset.section;
         const info = target.dataset.info;
-        const updatedData = { ...data, [section]: { ...data[section], [info]: target.value } };
+        const updatedData = { 
+            ...data, [section]: { ...data[section], [info]: target.value } 
+        };
 
         setdata(updatedData)
     }
 
-    function handleClick(e) {
+    function handleTitleClick(e) {
         const section = e.target.dataset.section;
+        const updatedData = {
+            ...data, [section]: { ...data[section], hidden: !data[section].hidden }
+        };
+    
+        setdata(updatedData);
+    }
 
-        if (data[section].hidden) {
-            const updatedData = { ...data, [section]: { ...data[section], hidden: false } };
-            setdata(updatedData)
-        } else {
-            const updatedData = { ...data, [section]: { ...data[section], hidden: true } };
-            setdata(updatedData)
+    function clearForm() {
+        const clearedData = {
+            ...data, ["personalDetails"]: { ...data["personalDetails"],
+                fullName: "",
+                email: "",
+                phoneNumber: "",
+                address : "",
+            }
         }
+
+        console.log(clearedData)
+
+        // setdata(clearedData)
     }
 
     return (
@@ -54,7 +68,7 @@ export default function App() {
                     title="Personal Details"
                     section="personalDetails"
                     icon="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"
-                    onClick={handleClick}
+                    onClick={handleTitleClick}
                     content={
                         <DisplayEditForm 
                             data={data}
@@ -65,7 +79,10 @@ export default function App() {
                                     onChange={handleUpdate} 
                                 />}
                             buttons={
-                                <EditButton name="Clear" />
+                                <EditButton 
+                                    name="Clear" 
+                                    onClick={clearForm}    
+                                />
                             }
                         />
                     }
@@ -74,7 +91,7 @@ export default function App() {
                     title="Education"
                     section={"education"}
                     icon="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"
-                    onClick={handleClick}
+                    onClick={handleTitleClick}
                     content={
                         <DisplayEditForm 
                             data={data}
@@ -99,7 +116,7 @@ export default function App() {
                     title="Experience"
                     section={"experience"}
                     icon="M160-120q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v440q0 33-23.5 56.5T800-120H160Zm0-80h640v-440H160v440Zm240-520h160v-80H400v80ZM160-200v-440 440Z"
-                    onClick={handleClick}
+                    onClick={handleTitleClick}
                     content={
                         <DisplayEditForm 
                             data={data}

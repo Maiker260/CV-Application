@@ -1,6 +1,6 @@
 import "../../styles/edit-section/EditButton.css"
 
-export default function EditButton({ name, bgColor = null, icon = null, flex }) {
+export default function EditButton({ name, bgColor = null, icon = null, flex, onClick }) {
     
     const fontColor = bgColor
         ? "white"
@@ -17,7 +17,7 @@ export default function EditButton({ name, bgColor = null, icon = null, flex }) 
         : null
 
     return (
-        <button className="edit-button" style={buttonStyle}>
+        <button className="edit-button" style={buttonStyle} onClick={onClick}>
             {addIcon}
             {name}
         </button>
