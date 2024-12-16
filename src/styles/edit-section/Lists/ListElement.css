@@ -1,0 +1,10 @@
+.list-element-container {
+    align-items: center;
+    justify-content: space-between;
+    border-top: 3px solid #f3f4f6;
+}
+
+.icons {
+    gap: 1em;
+    cursor: pointer;
+}

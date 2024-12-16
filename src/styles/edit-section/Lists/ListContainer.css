@@ -1,0 +1,7 @@
+.list-container {
+    gap: 1em;
+}
+
+.button-container {
+    justify-content: center;
+}
