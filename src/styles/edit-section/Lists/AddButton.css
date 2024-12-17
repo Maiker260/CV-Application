@@ -1,6 +1,8 @@
 .add-button {
     background-color: white;
-    padding: 0.5em;
-    border-radius: 1em;
+    border: 4px solid #f3f4f6;
+    padding: 0.7em;
+    border-radius: 2em;
     cursor: pointer;
+    font-weight: bold;
 }

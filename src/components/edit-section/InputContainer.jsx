@@ -25,6 +25,7 @@ export default function InputContainer({
                 id={`${dataSection}${dataInfo}`}
               >
               </textarea>
+              
             : <input 
                 type={type} 
                 placeholder={placeholder} 

@@ -3,7 +3,7 @@ import InputContainer from "../InputContainer"
 import "../../../styles/edit-section/Form.css"
 
 export default function AddPersonalDetails({ data, onChange }) {
-    data = data.personalDetails;
+    data = data.personalDetails.content[0];
 
     return (
         <div className="form flex-column">

@@ -3,27 +3,25 @@ import InputContainer from "../InputContainer"
 import "../../../styles/edit-section/Form.css"
 
 export default function AddEducation({ data, onChange }) {
-    data = data.education;
-
     return (
         <div className="form flex-column">
             <InputContainer
                 title="School:"
                 type="text"
                 placeholder="School/University"
-                inputValue={data.school}
+                inputValue={data.institution}
                 onChange={onChange}
                 dataSection="education"
-                dataInfo="school"
+                dataInfo="institution"
             />
             <InputContainer
                 title="Degree:"
                 type="text"
                 placeholder="Degree/Career"
-                inputValue={data.degree}
+                inputValue={data.title}
                 onChange={onChange}
                 dataSection="education"
-                dataInfo="degree"
+                dataInfo="title"
             />
             <div className="dates education-dates">
                 <InputContainer

@@ -57,7 +57,7 @@ body {
 
 .preview-section {
     background-color: white;
-    max-width: 793px;
-    max-height: 1122px;
+    width: 793px;
+    height: 1122px;
     overflow: hidden;
 }

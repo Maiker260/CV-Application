@@ -3,18 +3,16 @@ import InputContainer from "../InputContainer"
 import "../../../styles/edit-section/Form.css"
 
 export default function AddExperience({ data, onChange }) {
-    data = data.experience;
-
     return (
         <div className="form flex-column">
             <InputContainer
                 title="Company Name:"
                 type="text"
                 placeholder="Company Name"
-                inputValue={data.companyName}
+                inputValue={data.institution}
                 onChange={onChange}
                 dataSection="experience"
-                dataInfo="companyName"
+                dataInfo="institution"
             />
             <InputContainer
                 title="Title:"

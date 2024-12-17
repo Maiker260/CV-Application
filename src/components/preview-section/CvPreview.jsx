@@ -5,9 +5,20 @@ import CvInfoDescription from "./CvInfoDescription"
 import "../../styles/preview-section/CvPreview.css"
 
 export default function CvPreview({ data }) {
-    let personalDetails = data.personalDetails;
+    let personalDetails = data.personalDetails.content[0];
     let education = data.education;
     let experience = data.experience;
+
+    const mapContent = (content) => 
+        content.map(info => (
+            <CvInfoDescription 
+                key={`${info.startDate}-${info.endDate}-${info.institution}`}
+                date={`${info.startDate} - ${info.endDate}`}
+                institution={info.institution}
+                position={info.title}
+                description={info.description}
+            />
+        ));
 
     return (
         <section className="cv-preview">
@@ -34,23 +45,11 @@ export default function CvPreview({ data }) {
             <main className="cv-content flex-column">
                 <CvInfoSection 
                     title="Education"
-                    content= 
-                        {<CvInfoDescription 
-                            date={`${education.startDate} - ${education.endDate}`}
-                            institution={education.school}
-                            position={education.degree}
-                            description={education.description}
-                        />}
+                    content={mapContent(education.content)}
                 />
                 <CvInfoSection 
                     title="Experience"
-                    content= 
-                        {<CvInfoDescription 
-                            date={`${experience.startDate} - ${experience.endDate}`}
-                            institution={experience.companyName}
-                            position={experience.title}
-                            description={experience.description}
-                        />}
+                    content={mapContent(experience.content)}
                 />
                 <CvInfoSection 
                     title="Additional Information"
