@@ -8,14 +8,14 @@ import { useState } from "react"
 import DisplayEditForm from "./components/edit-section/Add-Information/DisplayEditForm";
 import ListContainer from "./components/edit-section/Lists/ListContainer"
 import { cvData } from "./components/cvData"
+import addNewInfo from "./components/edit-section/Add-Information/AddNewInfo"
 
 import "./styles/App.css";
 
 export default function App() {
 
     const [data, setdata] = useState(exampleData)
-    const [currentEducation, setCurrentEducation] = useState(exampleData.education.content[0])
-    const [currentExperience, setCurrentExperience] = useState(exampleData.experience.content[0])
+    const [infoSelected, setInfoSelected] = useState({ education: exampleData.education.content[0], experience: exampleData.experience.content[0] })
     const [editMode, setEditMode] = useState({ education: false, experience: false })
 
     function handleUpdate(e, index = 0) {
@@ -32,7 +32,7 @@ export default function App() {
                     ) 
                 } 
         };
-        
+
         setdata(updatedData)
     }
 
@@ -45,13 +45,17 @@ export default function App() {
         setdata(updatedData);
     }
 
-    function handleEditInfo(e) {
-        const { section, index } = e.target.dataset;
-        const selectedData = exampleData[section].content[index]
-
-        section === "education"
-            ? setCurrentEducation(selectedData)
-            : setCurrentExperience(selectedData)
+    function handleEditForm(e) {
+        const { section, index, button } = e.target.dataset;
+        const selectedData = 
+            button === "addButton" 
+                ?  addNewInfo
+                : exampleData[section].content[index];
+                
+        setInfoSelected(prevState => ({
+            ...prevState,
+            [section]: selectedData,
+        }));
 
         setEditMode(prevState => ({
             ...prevState,
@@ -96,17 +100,20 @@ export default function App() {
                         <DisplayEditForm 
                             data={data}
                             section="personalDetails"
-                            content={
-                                <AddPersonalDetails 
-                                    data={data} 
-                                    onChange={handleUpdate} 
-                                />}
-                            buttons={
-                                <EditButton 
-                                    name="Clear" 
-                                    onClick={clearForm}    
-                                />
-                            }
+                            content=
+                                {
+                                    <AddPersonalDetails 
+                                        data={data} 
+                                        onChange={handleUpdate} 
+                                    />
+                                }
+                            buttons=
+                                {
+                                    <EditButton 
+                                        name="Clear" 
+                                        onClick={clearForm}    
+                                    />
+                                }
                         />
                     }
                 />
@@ -124,10 +131,10 @@ export default function App() {
                                     data={data}
                                     section="education"
                                     name={"Education"}
-                                    onClick={handleEditInfo}
+                                    onClick={handleEditForm}
                                     onChange={handleUpdate}
                                     editMode={editMode.education}
-                                    dataSelected={currentEducation}
+                                    dataSelected={infoSelected.education}
                                 />
                             }
                         />
@@ -148,10 +155,10 @@ export default function App() {
                                     data={data}
                                     section="experience"
                                     name={"Experience"}
-                                    onClick={handleEditInfo}
+                                    onClick={handleEditForm}
                                     onChange={handleUpdate}
                                     editMode={editMode.experience}
-                                    dataSelected={currentExperience}
+                                    dataSelected={infoSelected.experience}
                                 />
                             }
                         />

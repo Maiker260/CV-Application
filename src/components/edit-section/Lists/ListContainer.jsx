@@ -17,6 +17,7 @@ export default function ListContainer({ data, section, name, onClick, onChange, 
             section={section}
             name={name}
             onClick={onClick}
+            addData={onClick}
           />
 
     return (
