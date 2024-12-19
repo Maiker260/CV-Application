@@ -15,10 +15,10 @@ import "./styles/App.css";
 export default function App() {
 
     const [data, setdata] = useState(exampleData)
-    const [infoSelected, setInfoSelected] = useState({ education: exampleData.education.content[0], experience: exampleData.experience.content[0] })
+    const [infoSelected, setInfoSelected] = useState({ education: "", experience: "" })
     const [editMode, setEditMode] = useState({ education: false, experience: false })
 
-    function handleUpdate(e, index = 0) {
+    function handleUpdate(e) {
         const { section, info } = e.target.dataset;
         const value = e.target.value;
 
@@ -26,7 +26,7 @@ export default function App() {
             ...data, 
                 [section]: { ...data[section], 
                     content: data[section].content.map(entry => 
-                        entry.index === index
+                        entry.index === infoSelected[section].index
                             ? { ...entry, [info]: value } 
                             : entry
                     ) 
@@ -49,9 +49,9 @@ export default function App() {
         const { section, index, button } = e.target.dataset;
         const selectedData = 
             button === "addButton" 
-                ?  addNewInfo
+                ?  addNewInfo(section)
                 : exampleData[section].content[index];
-                
+
         setInfoSelected(prevState => ({
             ...prevState,
             [section]: selectedData,

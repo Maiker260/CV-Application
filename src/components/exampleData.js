@@ -22,14 +22,14 @@ export const exampleData = {
                 endDate: "2018-04",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?",
             },
-            {
-                index: 0,
-                institution: "My University2",
-                title: "Student",
-                startDate: "2016-04",
-                endDate: "2018-04",
-                description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?",
-            },
+            // {
+            //     index: 0,
+            //     institution: "My University2",
+            //     title: "Student",
+            //     startDate: "2016-04",
+            //     endDate: "2018-04",
+            //     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?",
+            // },
         ]
     },
     experience: {
@@ -43,14 +43,14 @@ export const exampleData = {
                 endDate: "2019-03",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?",
             },
-            {
-                index: 0,
-                institution: "My Company2",
-                title: "Employee",
-                startDate: "2018-05",
-                endDate: "2019-03",
-                description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?",
-            },
+            // {
+            //     index: 0,
+            //     institution: "My Company2",
+            //     title: "Employee",
+            //     startDate: "2018-05",
+            //     endDate: "2019-03",
+            //     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?",
+            // },
         ]
     }
 }
