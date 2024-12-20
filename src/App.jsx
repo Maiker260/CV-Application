@@ -4,7 +4,7 @@ import CvPreview from "./components/preview-section/CvPreview"
 import EditInfoContainer from "./components/edit-section/EditInfoContainer"
 import { exampleData } from "./components/exampleData"
 import EditButton from "./components/edit-section/EditButton"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import DisplayEditForm from "./components/edit-section/Add-Information/DisplayEditForm";
 import ListContainer from "./components/edit-section/Lists/ListContainer"
 import { cvData } from "./components/cvData"
@@ -21,18 +21,21 @@ export default function App() {
     function handleUpdate(e) {
         const { section, info } = e.target.dataset;
         const value = e.target.value;
+        const index = 
+            section === "personalDetails"
+                ? data.personalDetails.content[0].index
+                : infoSelected[section].index
 
         const updatedData = { 
-            ...data, 
-                [section]: { ...data[section], 
-                    content: data[section].content.map(entry => 
-                        entry.index === infoSelected[section].index
-                            ? { ...entry, [info]: value } 
-                            : entry
-                    ) 
-                } 
+            ...data, [section]: { ...data[section], content: 
+                data[section].content.map(entry => 
+                    entry.index === index
+                        ? { ...entry, [info]: value } 
+                        : entry
+                ) 
+            } 
         };
-
+        
         setdata(updatedData)
     }
 
@@ -50,13 +53,13 @@ export default function App() {
         const selectedData = 
             button === "addButton" 
                 ?  addNewInfo(section)
-                : exampleData[section].content[index];
+                : data[section].content[index];
 
         setInfoSelected(prevState => ({
             ...prevState,
             [section]: selectedData,
         }));
-
+        
         setEditMode(prevState => ({
             ...prevState,
             [section]: true,
@@ -65,17 +68,16 @@ export default function App() {
 
     function clearForm() {
         const clearedData = {
-            ...data, ["personalDetails"]: { ...data["personalDetails"],
+            ...data, personalDetails: { ...data.personalDetails, content: [{
+                index: 0,
                 fullName: "",
                 email: "",
                 phoneNumber: "",
                 address : "",
-            }
+            }]}
         }
 
-        console.log(clearedData)
-
-        // setdata(clearedData)
+        setdata(clearedData)
     }
 
     return (

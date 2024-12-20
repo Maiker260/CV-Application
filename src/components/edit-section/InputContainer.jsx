@@ -19,7 +19,7 @@ export default function InputContainer({
                 placeholder={placeholder} 
                 className={classInput} 
                 onChange={onChange} 
-                defaultValue={inputValue}
+                value={inputValue}
                 data-section={dataSection}
                 data-info={dataInfo}
                 id={`${dataSection}${dataInfo}`}
@@ -31,7 +31,7 @@ export default function InputContainer({
                 placeholder={placeholder} 
                 className={classInput} 
                 onChange={onChange} 
-                defaultValue={inputValue}
+                value={inputValue}
                 data-section={dataSection}
                 data-info={dataInfo}
                 id={`${dataSection}${dataInfo}`}
