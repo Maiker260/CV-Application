@@ -8,7 +8,7 @@ export default function ListContainer({ data, section, name, onClick, onChange, 
     const content = editMode
         ? <EditForm 
             section={section}
-            data={dataSelected}
+            dataSelected={dataSelected}
             onChange={onChange}
           />
 

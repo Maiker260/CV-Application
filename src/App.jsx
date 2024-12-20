@@ -4,7 +4,7 @@ import CvPreview from "./components/preview-section/CvPreview"
 import EditInfoContainer from "./components/edit-section/EditInfoContainer"
 import { exampleData } from "./components/exampleData"
 import EditButton from "./components/edit-section/EditButton"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import DisplayEditForm from "./components/edit-section/Add-Information/DisplayEditForm";
 import ListContainer from "./components/edit-section/Lists/ListContainer"
 import { cvData } from "./components/cvData"
@@ -21,6 +21,7 @@ export default function App() {
     function handleUpdate(e) {
         const { section, info } = e.target.dataset;
         const value = e.target.value;
+        
         const index = 
             section === "personalDetails"
                 ? data.personalDetails.content[0].index
@@ -34,9 +35,19 @@ export default function App() {
                         : entry
                 ) 
             } 
-        };
-        
-        setdata(updatedData)
+        }
+    
+        setdata(updatedData);
+    
+        if (section !== "personalDetails") {
+            setInfoSelected(prev => ({
+                ...prev,
+                [section]: {
+                    ...prev[section],
+                    [info]: value
+                }
+            }));
+        }
     }
 
     function formVisibility(e) {
