@@ -14,7 +14,7 @@ import "./styles/App.css";
 
 export default function App() {
 
-    const [data, setdata] = useState(exampleData)
+    const [data, setData] = useState(exampleData)
     const [infoSelected, setInfoSelected] = useState({ education: "", experience: "" })
     const [editMode, setEditMode] = useState({ education: false, experience: false })
 
@@ -37,7 +37,7 @@ export default function App() {
             } 
         }
     
-        setdata(updatedData);
+        setData(updatedData);
     
         if (section !== "personalDetails") {
             setInfoSelected(prev => ({
@@ -56,7 +56,7 @@ export default function App() {
             ...data, [section]: { ...data[section], hidden: !data[section].hidden }
         };
     
-        setdata(updatedData);
+        setData(updatedData);
     }
 
     function handleEditForm(e) {
@@ -88,7 +88,38 @@ export default function App() {
             }]}
         }
 
-        setdata(clearedData)
+        setData(clearedData)
+    }
+
+    function handleEditButtons(e) {
+        const {index, section, btn} = e.target.dataset;
+
+        switch (btn) {
+            case 'DeleteBtn':
+                setData(prevState => ({
+                    ...prevState, [section]: {
+                        ...prevState[section], content: {
+                            ...prevState[section].content.filter(
+                                info => info.index !== index
+                            )
+                        }
+                    }
+                }))
+                console.log("Deleted")
+                setEditMode(prevState => ({
+                    ...prevState,
+                    [section]: false,
+                }));
+                console.log(data)
+                break;
+            case 'CancelBtn': 
+                console.log("Canceled")
+                break
+            case 'SaveBtn':
+                console.log("Saved")
+                break
+        }
+
     }
 
     return (
@@ -148,11 +179,11 @@ export default function App() {
                                     onChange={handleUpdate}
                                     editMode={editMode.education}
                                     dataSelected={infoSelected.education}
+                                    editButtons={handleEditButtons}
                                 />
                             }
                         />
                     }
-                    
                 />
                 <EditInfoContainer 
                     title="Experience"
@@ -172,6 +203,7 @@ export default function App() {
                                     onChange={handleUpdate}
                                     editMode={editMode.experience}
                                     dataSelected={infoSelected.experience}
+                                    editButtons={handleEditButtons}
                                 />
                             }
                         />

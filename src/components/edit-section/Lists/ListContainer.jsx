@@ -3,13 +3,14 @@ import DataList from "./DataList"
 
 import "../../../styles/edit-section/Lists/ListContainer.css"
 
-export default function ListContainer({ data, section, name, onClick, onChange, editMode, dataSelected }) {
+export default function ListContainer({ data, section, name, onClick, onChange, editMode, dataSelected, editButtons }) {
 
     const content = editMode
         ? <EditForm 
             section={section}
             dataSelected={dataSelected}
             onChange={onChange}
+            editButtons={editButtons}
           />
 
         : <DataList 
