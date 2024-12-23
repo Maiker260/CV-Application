@@ -45,10 +45,11 @@ export default function CvPreview({ data }) {
             <main className="cv-content flex-column">
                 <CvInfoSection 
                     title="Education"
-                    content={mapContent(education.content)}
+                    content={education.content ? mapContent(education.content) : null}
                 />
                 <CvInfoSection 
                     title="Experience"
+                    // content={experience.content ? mapContent(experience.content) : null}
                     content={mapContent(experience.content)}
                 />
                 <CvInfoSection 

@@ -63,7 +63,7 @@ export default function App() {
         const { section, index, button } = e.target.dataset;
         const selectedData = 
             button === "addButton" 
-                ?  addNewInfo(section)
+                ?  addNewInfo(data, section)
                 : data[section].content[index];
 
         setInfoSelected(prevState => ({
@@ -98,19 +98,21 @@ export default function App() {
             case 'DeleteBtn':
                 setData(prevState => ({
                     ...prevState, [section]: {
-                        ...prevState[section], content: {
+                        ...prevState[section], content: [
                             ...prevState[section].content.filter(
-                                info => info.index !== index
-                            )
-                        }
+                                info => info.index !== Number(index)
+                            ).map((info, idx) => ({
+                                ...info, index: idx
+                            }))
+                        ]
                     }
                 }))
-                console.log("Deleted")
+                
                 setEditMode(prevState => ({
                     ...prevState,
                     [section]: false,
                 }));
-                console.log(data)
+
                 break;
             case 'CancelBtn': 
                 console.log("Canceled")

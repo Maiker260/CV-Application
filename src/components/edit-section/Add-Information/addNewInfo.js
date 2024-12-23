@@ -1,7 +1,5 @@
-import { exampleData } from "../../exampleData"
-
-export default function addNewInfo(section) {
-    const infoPosition = exampleData[section].content;
+export default function addNewInfo(data, section) {
+    const infoPosition = data[section].content;
 
     class Info {
         constructor(institution, title, startDate, endDate, description) {

@@ -22,6 +22,14 @@ export const exampleData = {
                 endDate: "2018-04",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?",
             },
+            {
+                index: 1,
+                institution: "My asdasdsa",
+                title: "Student",
+                startDate: "2016-04",
+                endDate: "2018-04",
+                description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?",
+            },
         ]
     },
     experience: {
