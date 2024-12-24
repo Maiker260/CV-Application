@@ -19,26 +19,43 @@ export default function formButtons(e, data, setData, setEditMode) {
         }))
     }
 
-    switch (btn) {
-        case 'DeleteBtn':
-            deleteFn();
-            closeEditMode(setEditMode, section);
-            break;
+    // switch (btn) {
+    //     case 'DeleteBtn':
+    //         deleteFn();
+    //         closeEditMode(setEditMode, section);
+    //         break;
 
-        case 'CancelBtn':
-            // setData(getCvData())
-            if(!data[section].content[index].institution) {
-                deleteFn()
-            }
-            closeEditMode(setEditMode, section);
-            break
+    //     case 'CancelBtn':
+    //         // setData(getCvData())
+    //         if(!data[section].content[index].institution) {
+    //             deleteFn()
+    //         }
+    //         closeEditMode(setEditMode, section);
+    //         break
 
-        case 'SaveBtn':
-            if(!data[section].content[index].institution) {
-                deleteFn()
-            }
-            addToDatabase(data)
-            closeEditMode(setEditMode, section);
-            break
+    //     case 'SaveBtn':
+    //         if(!data[section].content[index].institution) {
+    //             deleteFn()
+    //         }
+    //         addToDatabase(data)
+    //         closeEditMode(setEditMode, section);
+    //         break
+    // }
+
+    if (btn === 'DeleteBtn') {
+        deleteFn();
+        closeEditMode(setEditMode, section);
+    } else if (btn === 'CancelBtn') {
+        setData(getCvData())
+        if(!data[section].content[index].institution) {
+            deleteFn()
+        }
+        closeEditMode(setEditMode, section);
+    } else if (btn === 'SaveBtn') {
+        if(!data[section].content[index].institution) {
+            deleteFn()
+        }
+        addToDatabase(data)
+        closeEditMode(setEditMode, section);
     }
 }

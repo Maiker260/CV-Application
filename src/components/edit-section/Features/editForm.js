@@ -20,28 +20,25 @@ export default function editForm(e, data, setData, setInfoSelected, setEditMode)
         }));
     }
 
-    switch (button) {
-        case 'editButton':
-            selectedData = data[section].content[index]
-            startEditMode();
-            break;
+    if (button === 'editButton') {
+        selectedData = data[section].content[index]
+        startEditMode();
 
-        case 'showButton':
-            setData(prevState => ({
-                ...prevState, [section]: {
-                    ...prevState[section], content: [
-                        ...prevState[section].content.map(info => 
-                            info.index === Number(index) 
-                                ? { ...info, hidden: !info.hidden }
-                                : info
-                        )
-                    ]
-                }
-            }))
-
-        case 'addButton':
-            selectedData = addNewInfo(data, section)
-            startEditMode();
-            break;
-    }  
+    } else if (button === 'showButton') {
+        setData(prevState => ({
+            ...prevState, [section]: {
+                ...prevState[section], content: [
+                    ...prevState[section].content.map(info => 
+                        info.index === Number(index) 
+                            ? { ...info, hidden: !info.hidden }
+                            : info
+                    )
+                ]
+            }
+        }))
+        
+    } else if (button === 'addButton') {
+        selectedData = addNewInfo(data, section)
+        startEditMode();
+    }
 }
