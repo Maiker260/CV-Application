@@ -9,8 +9,9 @@ export default function CvPreview({ data }) {
     let education = data.education;
     let experience = data.experience;
 
-    const mapContent = (content) => 
-        content.map(info => (
+    const mapContent = (content) => content
+        .filter(info => !info.hidden)
+        .map(info => (
             <CvInfoDescription 
                 key={`${info.startDate}-${info.endDate}-${info.institution}`}
                 date={`${info.startDate} - ${info.endDate}`}

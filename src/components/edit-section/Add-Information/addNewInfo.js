@@ -9,6 +9,7 @@ export default function addNewInfo(data, section) {
             this.startDate = startDate,
             this.endDate = endDate,
             this.description = description
+            this.hidden = false
         }
     }
 

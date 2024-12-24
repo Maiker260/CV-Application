@@ -1,4 +1,4 @@
-import EditForm from "./EditForm"
+import EditFormList from "./EditFormList"
 import DataList from "./DataList"
 
 import "../../../styles/edit-section/Lists/ListContainer.css"
@@ -6,7 +6,7 @@ import "../../../styles/edit-section/Lists/ListContainer.css"
 export default function ListContainer({ data, section, name, onClick, onChange, editMode, dataSelected, editButtons }) {
 
     const content = editMode
-        ? <EditForm 
+        ? <EditFormList 
             section={section}
             dataSelected={dataSelected}
             onChange={onChange}

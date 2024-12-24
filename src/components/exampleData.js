@@ -21,6 +21,7 @@ export const exampleData = {
                 startDate: "2016-04",
                 endDate: "2018-04",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?",
+                hidden: false
             },
             {
                 index: 1,
@@ -29,6 +30,7 @@ export const exampleData = {
                 startDate: "2016-04",
                 endDate: "2018-04",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?",
+                hidden: true
             },
         ]
     },
@@ -42,6 +44,7 @@ export const exampleData = {
                 startDate: "2018-05",
                 endDate: "2019-03",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?",
+                hidden: false
             },
         ]
     }

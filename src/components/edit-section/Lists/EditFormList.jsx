@@ -2,7 +2,7 @@ import AddEducation from "../Add-Information/AddEducation"
 import AddExperience from "../Add-Information/AddExperience"
 import EditButtonGroup from "../EditButtonGroup"
 
-export default function EditForm({ section, dataSelected, onChange, editButtons }) {
+export default function EditFormList({ section, dataSelected, onChange, editButtons }) {
     const form = 
         section == "education"
             ? <AddEducation 

@@ -1,14 +1,9 @@
-export const cvData = {
-    personalDetails: {
-        hidden: false,
-        content: []
-    },
-    education: {
-        hidden: false,
-        content: []
-    },
-    experience: {
-        hidden: false,
-        content: []
-    },
+let cvData
+
+export function getCvData() {
+    return cvData;
+}
+
+export function setCvData(newData) {
+    cvData = newData;
 }
