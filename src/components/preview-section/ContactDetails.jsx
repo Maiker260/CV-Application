@@ -1,4 +1,4 @@
-import Icons from "../icons"
+import Icons from "../Icons"
 
 import "../../styles/preview-section/ContactDetails.css"
 
