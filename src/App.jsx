@@ -7,7 +7,7 @@ import { exampleData } from "./components/exampleData"
 import EditButton from "./components/edit-section/EditButton"
 import DisplayEditForm from "./components/edit-section/Add-Information/DisplayEditForm";
 import ListContainer from "./components/edit-section/Lists/ListContainer"
-import infoUpdate from "./components/edit-section/Features/InfoUpdate"
+import infoUpdate from "./components/edit-section/Features/infoUpdate"
 import formVisibility from "./components/edit-section/Features/formVisibility"
 import editForm from "./components/edit-section/Features/editForm"
 import clearForm from "./components/edit-section/Features/clearForm"
