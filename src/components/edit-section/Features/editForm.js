@@ -1,4 +1,4 @@
-import addNewInfo from "../Add-Information/AddNewInfo";
+import addNewInfo from "../Add-Information/addNewInfo";
 
 export default function editForm(e, data, setData, setInfoSelected, setEditMode, setOldData) {
     const { section, index, button } = e.target.dataset;
