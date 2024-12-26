@@ -1,19 +1,16 @@
 import addNewInfo from "../Add-Information/AddNewInfo";
-import { setCvData } from "../../cvData";
 
-export default function editForm(e, data, setData, setInfoSelected, setEditMode) {
+export default function editForm(e, data, setData, setInfoSelected, setEditMode, setOldData) {
     const { section, index, button } = e.target.dataset;
+
     let selectedData;
 
-    // Save old data before modiying it.
-    setCvData(data)
-
-    function startEditMode() {
+    function startEditMode(newData) {
         setInfoSelected(prevState => ({
             ...prevState,
-            [section]: selectedData,
+            [section]: newData || selectedData,
         }));
-        
+
         setEditMode(prevState => ({
             ...prevState,
             [section]: true,
@@ -21,24 +18,37 @@ export default function editForm(e, data, setData, setInfoSelected, setEditMode)
     }
 
     if (button === 'editButton') {
-        selectedData = data[section].content[index]
+        selectedData = data[section].content[index];
         startEditMode();
 
     } else if (button === 'showButton') {
-        setData(prevState => ({
-            ...prevState, [section]: {
-                ...prevState[section], content: [
-                    ...prevState[section].content.map(info => 
-                        info.index === Number(index) 
-                            ? { ...info, hidden: !info.hidden }
-                            : info
-                    )
-                ]
-            }
-        }))
-        
+        setData(prevState => {
+            const updatedContent = prevState[section].content.map(info =>
+                info.index === Number(index)
+                    ? { ...info, hidden: !info.hidden }
+                    : info
+            );
+
+            return {
+                ...prevState,
+                [section]: {
+                    ...prevState[section],
+                    content: updatedContent,
+                },
+            };
+        });
+        setOldData(data)
+
     } else if (button === 'addButton') {
-        selectedData = addNewInfo(data, section)
-        startEditMode();
+        
+        const newData = addNewInfo(data, section);
+        setData(prevState => ({
+            ...prevState,
+            [section]: {
+                ...prevState[section],
+                content: [...prevState[section].content, newData],
+            },
+        }));
+        startEditMode(newData);
     }
 }

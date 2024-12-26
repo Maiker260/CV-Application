@@ -2,20 +2,23 @@ export default function infoUpdate(e, data, setData, infoSelected, setInfoSelect
     const { section, info } = e.target.dataset;
     const value = e.target.value;
     
-    const index = 
-        section === "personalDetails"
+    const index = section === "personalDetails"
             ? data.personalDetails.content[0].index
             : infoSelected[section].index
 
+    const updatedContent = data[section].content.map(entry => 
+        entry.index === index
+            ? { ...entry, [info]: value }
+            : entry
+    );
+    
     const updatedData = { 
-        ...data, [section]: { ...data[section], content: 
-            data[section].content.map(entry => 
-                entry.index === index
-                    ? { ...entry, [info]: value } 
-                    : entry
-            ) 
-        } 
-    }
+        ...data,
+        [section]: {
+            ...data[section],
+            content: updatedContent
+        }
+    };
 
     setData(updatedData);
 

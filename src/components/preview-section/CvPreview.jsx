@@ -8,12 +8,13 @@ export default function CvPreview({ data }) {
     let personalDetails = data.personalDetails.content[0];
     let education = data.education;
     let experience = data.experience;
+    let moreInfo = data.moreInfo;
 
     const mapContent = (content) => content
         .filter(info => !info.hidden)
         .map(info => (
             <CvInfoDescription 
-                key={`${info.startDate}-${info.endDate}-${info.institution}`}
+                key={`${info.startDate}-${info.endDate}-${info.institution}-${info.title}`}
                 date={`${info.startDate} - ${info.endDate}`}
                 institution={info.institution}
                 position={info.title}
@@ -50,19 +51,15 @@ export default function CvPreview({ data }) {
                 />
                 <CvInfoSection 
                     title="Experience"
-                    // content={experience.content ? mapContent(experience.content) : null}
-                    content={mapContent(experience.content)}
+                    content={experience.content ? mapContent(experience.content) : null}
                 />
-                <CvInfoSection 
-                    title="Additional Information"
-                    content= 
-                        {<CvInfoDescription 
-                            date="04/2016 - 02/2018"
-                            institution="More Information"
-                            position="More Information"
-                            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?"
-                        />}
-                />
+                {moreInfo.content[0] 
+                    ? (<CvInfoSection 
+                        title="Additional Information"
+                        content={moreInfo.content ? mapContent(moreInfo.content) : null}
+                    />)
+                    : null
+                }
             </main>
         </section>
     )

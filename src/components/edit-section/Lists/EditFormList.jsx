@@ -1,19 +1,23 @@
 import AddEducation from "../Add-Information/AddEducation"
 import AddExperience from "../Add-Information/AddExperience"
 import EditButtonGroup from "../EditButtonGroup"
+import AddMoreInfo from "../Add-Information/AddMoreInfo"
 
 export default function EditFormList({ section, dataSelected, onChange, editButtons }) {
-    const form = 
-        section == "education"
-            ? <AddEducation 
-                data={dataSelected} 
-                onChange={onChange} 
-              />
+    
+    const formComponents = {
+        education: AddEducation,
+        experience: AddExperience,
+        moreInfo: AddMoreInfo,
+    }
 
-            : <AddExperience 
-                data={dataSelected} 
-                onChange={onChange} 
-              />
+    const FormComponent = formComponents[section];
+    
+    const form = FormComponent 
+        ? (
+            <FormComponent data={dataSelected} onChange={onChange} />
+          ) 
+        : null;
 
     return (
         <>

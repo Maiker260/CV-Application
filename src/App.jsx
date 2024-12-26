@@ -18,15 +18,16 @@ import "./styles/App.css";
 export default function App() {
 
     const [data, setData] = useState(exampleData)
-    const [infoSelected, setInfoSelected] = useState({ education: "", experience: "" })
-    const [editMode, setEditMode] = useState({ education: false, experience: false })
+    const [oldData, setOldData] = useState(exampleData)
+    const [infoSelected, setInfoSelected] = useState({ education: "", experience: "", moreInfo: "" })
+    const [editMode, setEditMode] = useState({ education: false, experience: false, moreInfo: false })
 
     const handlers = {
         handleInfoUpdate: (e) => infoUpdate(e, data, setData, infoSelected, setInfoSelected),
-        handleFormVisibility: (e) => formVisibility(e, data, setData),
-        handleEditForm: (e) => editForm(e, data, setData, setInfoSelected, setEditMode),
+        handleFormVisibility: (e) => formVisibility(e, data, setData, setOldData),
+        handleEditForm: (e) => editForm(e, data, setData, setInfoSelected, setEditMode, setOldData),
         handleClearForm: () => clearForm(data, setData),
-        handleFormButtons: (e) => formButtons(e, data, setData, setEditMode),
+        handleFormButtons: (e) => formButtons(e, data, setData, oldData, setOldData, setEditMode),
     }
 
     return (
@@ -110,6 +111,31 @@ export default function App() {
                                     onChange={handlers.handleInfoUpdate}
                                     editMode={editMode.experience}
                                     dataSelected={infoSelected.experience}
+                                    editButtons={handlers.handleFormButtons}
+                                />
+                            }
+                        />
+                    }
+                    
+                />
+                <EditInfoContainer 
+                    title="More Information"
+                    section={"moreInfo"}
+                    icon="M160-120q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v440q0 33-23.5 56.5T800-120H160Zm0-80h640v-440H160v440Zm240-520h160v-80H400v80ZM160-200v-440 440Z"
+                    onClick={handlers.handleFormVisibility}
+                    content={
+                        <DisplayEditForm 
+                            data={data}
+                            section="moreInfo"
+                            content={
+                                <ListContainer
+                                    data={data}
+                                    section="moreInfo"
+                                    name={"Information"}
+                                    onClick={handlers.handleEditForm}
+                                    onChange={handlers.handleInfoUpdate}
+                                    editMode={editMode.moreInfo}
+                                    dataSelected={infoSelected.moreInfo}
                                     editButtons={handlers.handleFormButtons}
                                 />
                             }

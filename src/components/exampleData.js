@@ -16,21 +16,21 @@ export const exampleData = {
         content: [
             {
                 index: 0,
+                hidden: false,
                 institution: "My University",
                 title: "Student",
                 startDate: "2016-04",
                 endDate: "2018-04",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?",
-                hidden: false
             },
             {
                 index: 1,
+                hidden: true,
                 institution: "My asdasdsa",
                 title: "Student",
                 startDate: "2016-04",
                 endDate: "2018-04",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?",
-                hidden: true
             },
         ]
     },
@@ -39,13 +39,27 @@ export const exampleData = {
         content: [
             {
                 index: 0,
+                hidden: false,
                 institution: "My Company",
                 title: "Employee",
                 startDate: "2018-05",
                 endDate: "2019-03",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?",
-                hidden: false
             },
+        ]
+    },
+    moreInfo: {
+        hidden: false,
+        content: [
+            {
+                index: 0,
+                hidden: false,
+                institution: "More Information",
+                title: "More Info",
+                startDate: "2013-05",
+                endDate: "2016-03",
+                description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta temporibus, enim totam ullam laudantium nam expedita iusto impedit doloribus itaque atque quaerat. Totam est doloremque earum mollitia recusandae aliquam?"
+            }
         ]
     }
 }
