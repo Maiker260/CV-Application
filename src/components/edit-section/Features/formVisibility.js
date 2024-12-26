@@ -6,5 +6,4 @@ export default function formVisibility(e, data, setData, setOldData) {
 
     setData(updatedData);
     setOldData(updatedData);
-    console.log(data)
 }
