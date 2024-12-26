@@ -4,10 +4,10 @@ export const exampleData = {
         content: [
             {
                 index: 0,
-                fullName: "Josephine Meyers",
-                email: "josephine.meyers@mail.co.uk",
-                phoneNumber: "+44 3245 5521 5521",
-                address: "London, UK",
+                fullName: "Adam West",
+                email: "adam.west@Gmail.co.cr",
+                phoneNumber: "+506 8888 8888",
+                address: "San Jose, CR",
             },
         ],
     },
