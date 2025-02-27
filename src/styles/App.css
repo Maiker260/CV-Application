@@ -40,6 +40,7 @@ body {
     grid-row-gap: 0px;
     gap: 1em;
     padding: 1.5em;
+    min-height: 100vh;
 }
 
 .navbar-section {
